@@ -2,9 +2,9 @@ package com.firefox.makemytrip;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -24,7 +24,6 @@ public class MakeMyTripTestNG {
 		FirefoxOptions options = new FirefoxOptions();
 		driver = new FirefoxDriver(options);
 
-		WebDriverWait wait = new WebDriverWait(driver, 10);
 	}
 
 	@AfterMethod
@@ -35,11 +34,13 @@ public class MakeMyTripTestNG {
 
 	@Test
 	public void testMakeMyTripLogoPresence() {
+
+		WebDriverWait wait = new WebDriverWait(driver, 10);
 		// Open MakeMyTrip website
 		driver.get("https://www.makemytrip.com/");
 
 		// Verify the presence of MakeMyTrip logo
-		WebElement logoElement = driver.findElement(By.xpath("//*[@data-cy=\"mmtLogo\"]"));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@data-cy=\"mmtLogo\"]")));
 		boolean isLogoPresent = driver.findElement(By.xpath("//*[@data-cy=\"mmtLogo\"]")).isDisplayed();
 		Assert.assertTrue(isLogoPresent, "MakeMyTrip logo is not present on the page.");
 	}

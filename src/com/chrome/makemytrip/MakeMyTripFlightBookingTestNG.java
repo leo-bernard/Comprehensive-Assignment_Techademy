@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,7 +22,7 @@ public class MakeMyTripFlightBookingTestNG {
 
 		// Initialize ChromeDriver
 		ChromeOptions options = new ChromeOptions();
-		options.setHeadless(true); // If you want to run in headless mode
+		// options.setHeadless(true); // If you want to run in headless mode
 		driver = new ChromeDriver(options);
 	}
 
@@ -36,7 +38,7 @@ public class MakeMyTripFlightBookingTestNG {
 		driver.get("https://www.makemytrip.com/");
 
 		// Click on Flights tab
-		clickElementByXPath("//span[text()='Flights']");
+		clickElementByXPath("//li[@data-cy='menu_Flights']");
 
 		// Click on OneWay option
 		clickElementByXPath("//li[@data-cy='oneWayTrip']");
@@ -56,14 +58,22 @@ public class MakeMyTripFlightBookingTestNG {
 
 	// Generic function to click element by XPath
 	private void clickElementByXPath(String xpath) {
+		waitForElementVisible(driver, By.xpath(xpath));
 		WebElement element = driver.findElement(By.xpath(xpath));
 		element.click();
 	}
 
 	// Generic function to enter text into element by XPath
 	private void enterTextByXPath(String xpath, String text) {
+		waitForElementVisible(driver, By.xpath(xpath));
 		WebElement element = driver.findElement(By.xpath(xpath));
-		element.clear();
+		// element.clear();
 		element.sendKeys(text);
+	}
+
+	// Generic function to wait for element to be visible
+	private static void waitForElementVisible(WebDriver driver, By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 }

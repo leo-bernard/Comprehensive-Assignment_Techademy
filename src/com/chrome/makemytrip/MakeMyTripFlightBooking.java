@@ -25,6 +25,9 @@ public class MakeMyTripFlightBooking {
 		// Click on Flights tab
 		clickElementByXPath(driver, "//li[@data-cy='menu_Flights']");
 
+		// clickElementByXPath(driver,
+		// "//*[@id=\"webklipper-publisher-widget-container-notification-close-div\"]");
+
 		// Click on OneWay option
 		clickElementByXPath(driver, "//li[@data-cy='oneWayTrip']");
 
@@ -61,7 +64,7 @@ public class MakeMyTripFlightBooking {
 
 	// Generic function to wait for element to be visible
 	private static void waitForElementVisible(WebDriver driver, By locator) {
-		WebDriverWait wait = new WebDriverWait(driver, 100);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 }
