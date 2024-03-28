@@ -27,8 +27,6 @@ public class MakeMyTripLogoVerification {
 		driver.get("https://www.makemytrip.com/");
 
 		// Check if the logo is present
-		// WebElement logoElement = driver.findElement(By.cssSelector(".chHeaderLogo"));
-		// WebElement logoElement = driver.findElement(By.className("chMmtLogo"));
 		WebElement logoElement = driver.findElement(By.xpath("//*[@data-cy=\"mmtLogo\"]"));
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@data-cy=\"mmtLogo\"]")));
 		if (logoElement.isDisplayed()) {
