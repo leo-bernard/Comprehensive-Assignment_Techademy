@@ -18,7 +18,7 @@ public class MakeMyTripFlightBookingTestNG {
 	public void setUp() {
 		// Set ChromeDriver path (Update with your ChromeDriver path)
 		System.setProperty("webdriver.chrome.driver",
-				"//Users/leobernard/eclipse-workspace/Comprehensive_Assignment/Drivers/chromedriver");
+				"//Users/leobernard/eclipse-workspace/Comprehensive-Assignment_Techademy/Drivers/chromedriver");
 
 		// Initialize ChromeDriver
 		ChromeOptions options = new ChromeOptions();

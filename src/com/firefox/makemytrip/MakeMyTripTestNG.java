@@ -18,7 +18,7 @@ public class MakeMyTripTestNG {
 	public void setUp() {
 		// Set GeckoDriver path (Update with your GeckoDriver path)
 		System.setProperty("webdriver.gecko.driver",
-				"//Users/leobernard/eclipse-workspace/Comprehensive_Assignment/Drivers/geckodriver2");
+				"//Users/leobernard/eclipse-workspace/Comprehensive-Assignment_Techademy/Drivers/geckodriver2");
 
 		// Initialize FirefoxDriver
 		FirefoxOptions options = new FirefoxOptions();

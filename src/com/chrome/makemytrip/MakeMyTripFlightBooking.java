@@ -12,7 +12,7 @@ public class MakeMyTripFlightBooking {
 	public static void main(String[] args) {
 		// Set ChromeDriver path
 		System.setProperty("webdriver.chrome.driver",
-				"//Users/leobernard/eclipse-workspace/Comprehensive_Assignment/Drivers/chromedriver");
+				"//Users/leobernard/eclipse-workspace/Comprehensive-Assignment_Techademy/Drivers/chromedriver");
 
 		// Initialize ChromeDriver
 		ChromeOptions options = new ChromeOptions();
